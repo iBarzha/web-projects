@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --top-bg-color: rgba(87, 84, 236, 0.7);
+  --bottom-bg-color: rgba(43, 43, 43, 0.8);
+  --top-btn-hover-color: rgba(87, 84, 236, 1);
+  --bottom-btn-hover-color: rgba(28, 122, 28, 1);
+  --hover-height: 75%;
+  --other-height: 25%;
+  --speed: 1000ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.btn {
+  position: absolute;
+  top: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 15rem;
+  padding: 1.5rem;
+}
+
+.split {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  height: 50%;
+}
+
+.split.top {
+  background: url('ps.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.top::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: var(--top-bg-color);
+}
+
+.split.bottom {
+  background: url('xbox.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.bottom::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: var(--bottom-bg-color);
+}
+
+
+.split.top .btn:hover {
+  background-color: var(--top-btn-hover-color);
+  border-color: var(--top-btn-hover-color);
+}
+
+.split.bottom .btn:hover {
+  background-color: var(--bottom-btn-hover-color);
+  border-color: var(--bottom-btn-hover-color);
+}
+
+.split.bottom,
+.split.top,
+.split.bottom::before,
+.split.top::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+.hover-top .top {
+  height: var(--hover-height);
+}
+
+.hover-top .bottom {
+  height: var(--other-height);
+}
+
+.hover-bottom .bottom {
+  height: var(--hover-height);
+}
+
+.hover-bottom .top {
+  height: var(--other-height);
+}
